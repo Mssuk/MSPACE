@@ -2,8 +2,9 @@ import React from 'react'
 import { css } from "react-emotion"
 import { StaticQuery, Link, graphql } from 'gatsby'
 import { rhythm, scale } from '../utils/typography'
-
-
+import Helmet from 'react-helmet'
+import favicon from '../../static/favicon.ico'
+  
 export default (props) =>
 (
   <StaticQuery
@@ -16,11 +17,13 @@ export default (props) =>
             }
         }
     `}
+    
     render={data => {
     const rootPath = `${__PATH_PREFIX__}/`
     let header
     if (props.location && props.location.pathname === rootPath) {
       header = (
+
         <h1
           style={{
             ...scale(1.2),
@@ -45,8 +48,9 @@ export default (props) =>
         <h3
           style={{
             fontFamily: 'Montserrat, sans-serif',
-            marginTop: 0,
-            marginBottom: rhythm(-1),
+              marginBottom: rhythm(1.5),
+              marginTop: 0,
+            
           }}
         >
           <Link
@@ -63,6 +67,7 @@ export default (props) =>
       )
     }
     return(
+      
       <div
       className={css`
       margin: 0 auto;
@@ -71,6 +76,10 @@ export default (props) =>
       padding-top: ${rhythm(1.5)};
     `}
       >
+      <Helmet link = {[
+     {rel:'shortcut icon', type:'image/x-icon' , href : `${favicon}`}]}
+    ></Helmet>
+
         {header}
         {props.children}
       </div>

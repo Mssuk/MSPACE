@@ -5,55 +5,37 @@ import { css } from "react-emotion"
 import Helmet from 'react-helmet'
 
 import Layout from '../components/Layout'
+import Post from '../components/Post'
+import Sidebar from '../components/Sidebar'
+
 import { rhythm } from '../utils/typography'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 if (typeof window === 'undefined') {
   global.window = {}
 }
 
-export default ({data}) => {
-  const siteTitle = data.site.siteMetadata.title
-  const siteDescription = data.site.siteMetadata.description
+export default (props) => {
+  const siteTitle = props.data.site.siteMetadata.title
+  const siteDescription = props.data.site.siteMetadata.description
+  const posts = props.data.allMarkdownRemark.edges
   return (
+   
 <Layout location={window.location}>
-  <Helmet
-            htmlAttributes={{ lang: 'en' }}
-            meta={[{ name: 'description', content: siteDescription }]}
-            title={siteTitle}
-          />
-  <div>
+  <Sidebar {...props} />
 
-      <h4>{data.allMarkdownRemark.totalCount} 개의 포스트</h4>
+  <div className="content">
 
-  {data.allMarkdownRemark.edges.map(({node}) =>{
+  <h6 className={css`
+    margin-bottom :  ${rhythm(1)};
+    color:#FAAC58;
+  `}>{props.data.allMarkdownRemark.totalCount} 개의 포스트</h6>
+  {posts.map(post =>{
     
     return (
-      <div key= {node.fields.slug}>
-      <h3
-          className={css`
-          margin-bottom: ${rhythm(1/4)};
-      `}
-      >
-      <Link 
-          to = {node.fields.slug}
-          className={css`
-          text-decoration: none;
-          color: inherit;
-          box-shadow: none;
-      `
-      }
-      >
-      {node.frontmatter.title}{" "}
-      </Link>
-      </h3>
-      <small 
-       className={css`
-       color:#bbb;
-       `}
-       >
-      {node.frontmatter.date}</small>
-      <p>{node.excerpt}</p>
-
+      <div key= {post.node.fields.slug}>
+      <Post data={post}></Post>
       </div>
   )})}
   </div>
@@ -78,9 +60,11 @@ export const query = graphql`
         frontmatter{
           title
           date(formatString:"DD MMMM, YYYY")
+          category
         }
         fields{
             slug
+            categorySlug
         }
         excerpt
       }

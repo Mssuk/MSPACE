@@ -1,6 +1,7 @@
 ---
 title: W3C HTML5 Conference 2018을 다녀오고 나서..
 date: "2018-11-27"
+category: "etc"
 ---
 
 11월 26일 월요일, 코엑스에서 진행되는 W3C HTML5 컨퍼런스에 참석하였다.

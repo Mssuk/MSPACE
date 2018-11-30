@@ -1,6 +1,9 @@
 ---
 title: My Second Post!
 date: "2015-05-06T23:46:37.121Z"
+description: "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante."
+category: "test"
+layout: post
 ---
 
 Wow! I love blogging so much already.

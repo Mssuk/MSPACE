@@ -1,9 +1,9 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import { Link,graphql } from 'gatsby'
-import get from 'lodash/get'
 
 import Layout from '../components/Layout'
+import BackwardButton from '../components/BackwardButton'
 import { rhythm, scale } from '../utils/typography'
 
 if (typeof window === 'undefined') {
@@ -16,6 +16,7 @@ const blogPost = ({data}) => {
   return (
     
       <Layout location={window.location}>
+
         <Helmet
           htmlAttributes={{ lang: 'en' }}
           meta={[{ name: 'description', content: siteDescription }]}
@@ -36,6 +37,7 @@ const blogPost = ({data}) => {
         </p>
           <div dangerouslySetInnerHTML={{__html:post.html}} />
       </div>
+      <BackwardButton />
       </Layout>
   )
 }
