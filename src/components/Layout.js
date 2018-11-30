@@ -4,7 +4,7 @@ import { StaticQuery, Link, graphql } from 'gatsby'
 import { rhythm, scale } from '../utils/typography'
 import Helmet from 'react-helmet'
 import favicon from '../../static/favicon.ico'
-  
+import Sidebar from './Sidebar'  
 export default (props) =>
 (
   <StaticQuery
@@ -21,7 +21,8 @@ export default (props) =>
     render={data => {
     const rootPath = `${__PATH_PREFIX__}/`
     let header
-    if (props.location && props.location.pathname === rootPath) {
+
+    // if (props.location && props.location.pathname === rootPath) {
       header = (
 
         <h1
@@ -43,29 +44,29 @@ export default (props) =>
           </Link>
         </h1>
       )
-    } else {
-      header = (
-        <h3
-          style={{
-            fontFamily: 'Montserrat, sans-serif',
-              marginBottom: rhythm(1.5),
-              marginTop: 0,
+    // } else {
+    //   header = (
+    //     <h3
+    //       style={{
+    //         fontFamily: 'Montserrat, sans-serif',
+    //           marginBottom: rhythm(1.5),
+    //           marginTop: 0,
             
-          }}
-        >
-          <Link
-            style={{
-              boxShadow: 'none',
-              textDecoration: 'none',
-              color:'darkseagreen',
-            }}
-            to={'/'}
-          >
-            {data.site.siteMetadata.title}
-          </Link>
-        </h3>
-      )
-    }
+    //       }}
+    //     >
+    //       <Link
+    //         style={{
+    //           boxShadow: 'none',
+    //           textDecoration: 'none',
+    //           color:'darkseagreen',
+    //         }}
+    //         to={'/'}
+    //       >
+    //         {data.site.siteMetadata.title}
+    //       </Link>
+    //     </h3>
+    //   )
+    //}
     return(
       
       <div

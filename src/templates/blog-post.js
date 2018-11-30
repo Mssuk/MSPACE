@@ -5,25 +5,29 @@ import { Link,graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import BackwardButton from '../components/BackwardButton'
 import { rhythm, scale } from '../utils/typography'
+import Sidebar from '../components/Sidebar'
 
 if (typeof window === 'undefined') {
   global.window = {}
 }
-const blogPost = ({data}) => {
-  const post = data.markdownRemark
-  const siteTitle = data.site.siteMetadata.title
+const blogPost = (props) => {
+  const post = props.data.markdownRemark
+  const siteTitle = props.data.site.siteMetadata.title
   const siteDescription = post.excerpt
   return (
     
       <Layout location={window.location}>
 
         <Helmet
-          htmlAttributes={{ lang: 'en' }}
           meta={[{ name: 'description', content: siteDescription }]}
           title={`${post.frontmatter.title} | ${siteTitle}`}
         />
       <div>
-          <h1>{post.frontmatter.title}</h1>
+          <h2 
+          style={{
+            marginBottom: rhythm(1),
+            borderBottom : 0,
+          }}>{post.frontmatter.title}</h2>
         <p
           style={{
             ...scale(-1 / 5),

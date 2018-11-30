@@ -14,7 +14,7 @@ class Category extends Component {
         <div className="content">
             <div className="content__inner">
             <div className="page">
-                <h1 className="page__title">category_ {category}</h1>
+                <h2 className="page__title" style={{fontSize:'1.1rem', color:'#001a66', borderBottom : 0,}}>category_ {category}</h2>
                 <div className="page__body">{items}</div>
             </div>
             </div>

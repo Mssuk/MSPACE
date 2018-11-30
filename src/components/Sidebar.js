@@ -7,8 +7,10 @@ import { Badge } from 'reactstrap';
 
 import { css } from "react-emotion"
 import { rhythm, scale } from '../utils/typography'
+
 class Sidebar extends Component {
     render(){
+        console.log(this.props.data)
         const title = this.props.data.site.siteMetadata
         const categories = this.props.data.allMarkdownRemark.group
         return (
@@ -32,7 +34,21 @@ class Sidebar extends Component {
             `}
             render={data => {
             return(
-              <div>
+              <div style={{
+                 float: `left`,
+                 padding: rhythm(1),
+                 margin: rhythm(3),
+                 
+                 
+                 }}>
+                  <Link to="/">
+                  <img src={profileImg}
+                  style={{
+                    margin: rhythm(1.5),
+                    width: rhythm(3),
+                    height: rhythm(3),
+                  }} />
+                  </Link>
                   <div className="categories">
                     <ul className="categories__list">
                       {data.allMarkdownRemark.group.filter(category => category.fieldValue !== "undefined")

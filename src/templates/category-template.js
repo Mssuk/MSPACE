@@ -10,13 +10,15 @@ class categoryTemplate extends Component {
         const { title } = this.props.data.site.siteMetadata
         const { category } = this.props.pageContext
         return (
+          <div>
+          <Sidebar {...this.props} />
             <Layout>
             <div>
               <Helmet title={`${category} - ${title}`} />
-              <Sidebar {...this.props} />
               <Category {...this.props} />
             </div>
           </Layout>
+          </div>
         );
     }
 }
