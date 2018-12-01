@@ -4,7 +4,11 @@ import { StaticQuery, Link, graphql } from 'gatsby'
 import { rhythm, scale } from '../utils/typography'
 import Helmet from 'react-helmet'
 import favicon from '../../static/favicon.ico'
-import Sidebar from './Sidebar'  
+import Header from './Header'  
+import { Container, Row, Col } from 'reactstrap'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { FaSearch } from 'react-icons/fa'
+
 export default (props) =>
 (
   <StaticQuery
@@ -41,8 +45,12 @@ export default (props) =>
             to={'/'}
           >
             {data.site.siteMetadata.title}
+          </Link> 
+        <Link to={'/searchingPage/'} style={{color:"black", fontSize:`1rem`, float:`right`}}>
+        <FaSearch />
           </Link>
-        </h1>
+          </h1>
+
       )
     // } else {
     //   header = (
@@ -68,22 +76,35 @@ export default (props) =>
     //   )
     //}
     return(
-      
-      <div
-      className={css`
-      margin: 0 auto;
-      max-width: 800px;
-      padding: ${rhythm(2)};
-      padding-top: ${rhythm(1.5)};
-    `}
-      >
-      <Helmet link = {[
-     {rel:'shortcut icon', type:'image/x-icon' , href : `${favicon}`}]}
-    ></Helmet>
+      <Container style={{background:`white`, minHeight:`800px`}}>
+        <Row>
+          <Col md={{size:3}}>
+            <div 
+            className={css`
 
-        {header}
-        {props.children}
-      </div>
+            border-right: dotted gray 1px;
+            `}>
+             <Header />
+            </div>
+          </Col>
+         <Col md={{size:9}}>
+            <div
+            className={css`
+            margin: 0 auto;
+            max-width: 800px;
+            padding: ${rhythm(1)};
+            padding-top: ${rhythm(1.5)};
+          `}
+            >
+            <Helmet link = {[
+          {rel:'shortcut icon', type:'image/x-icon' , href : `${favicon}`}]}
+          ></Helmet>
+              {header}
+              {props.children}
+            </div>
+        </Col>
+       </Row>
+      </Container>
         )}}
     />
 )

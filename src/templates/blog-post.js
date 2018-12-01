@@ -5,7 +5,8 @@ import { Link,graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import BackwardButton from '../components/BackwardButton'
 import { rhythm, scale } from '../utils/typography'
-import Sidebar from '../components/Sidebar'
+import { DiscussionEmbed } from "disqus-react";
+import '../assets/css/mainCss.css'
 
 if (typeof window === 'undefined') {
   global.window = {}
@@ -14,6 +15,11 @@ const blogPost = (props) => {
   const post = props.data.markdownRemark
   const siteTitle = props.data.site.siteMetadata.title
   const siteDescription = post.excerpt
+  const disqusShortname = "mssuk";
+  const disqusConfig = {
+    identifier: post.id,
+    title: post.frontmatter.title,
+  };
   return (
     
       <Layout location={window.location}>
@@ -42,6 +48,10 @@ const blogPost = (props) => {
           <div dangerouslySetInnerHTML={{__html:post.html}} />
       </div>
       <BackwardButton />
+      <div>
+      <hr></hr>
+      <DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
+      </div>
       </Layout>
   )
 }

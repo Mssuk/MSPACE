@@ -2,17 +2,15 @@ import React, { Component } from 'react';
 import kebabCase from 'lodash/kebabCase'
 import get from 'lodash/get'
 import { StaticQuery, Link, graphql } from 'gatsby'
-import profileImg from '../rocket-icon-vector.png'
+import profileImg from '../assets/image/me.png'
 import { Badge } from 'reactstrap';
-
+import { FaGithub } from 'react-icons/fa'
 import { css } from "react-emotion"
 import { rhythm, scale } from '../utils/typography'
+import { Container, Row, Col } from 'reactstrap'
 
 class Sidebar extends Component {
     render(){
-        console.log(this.props.data)
-        const title = this.props.data.site.siteMetadata
-        const categories = this.props.data.allMarkdownRemark.group
         return (
             <StaticQuery
             query={graphql`
@@ -33,22 +31,21 @@ class Sidebar extends Component {
                 }
             `}
             render={data => {
+               const title = data.site.siteMetadata
+               const categories = data.allMarkdownRemark.group
             return(
-              <div style={{
-                 float: `left`,
-                 padding: rhythm(1),
-                 margin: rhythm(3),
-                 
-                 
-                 }}>
+              <Container>
+                <Row>
+                  <Col style={{textAlign:'center'}}>
                   <Link to="/">
                   <img src={profileImg}
-                  style={{
-                    margin: rhythm(1.5),
-                    width: rhythm(3),
-                    height: rhythm(3),
-                  }} />
+                  width={210}
+                  height={240} />
                   </Link>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col md={{size:'auto', offset:1}} xs={{size:'auto', offset:2}}>
                   <div className="categories">
                     <ul className="categories__list">
                       {data.allMarkdownRemark.group.filter(category => category.fieldValue !== "undefined")
@@ -69,8 +66,22 @@ class Sidebar extends Component {
                       ))}
                     </ul>
                   </div>
+                  </Col>
+                  </Row>
+                  <Row>
+                    <Col xs={{size:1, offset:4}}>
+                  <a href="https://github.com/Mssuk" style={{color:"black"}}>
+                  <h4>
+                  <FaGithub />
+                  </h4>
+                  </a>
+                  </Col>
+                    <Col xs={{size:6}} style={{textAlign:'left', fontSize:'0.6rem', marginTop:'1rem'}}>
+                    Mssuk
+                    </Col>
+                  </Row>
                 {/* {props.children} */}
-              </div>
+              </Container>
                 )}}
             />
         );

@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Sidebar from '../components/Sidebar'
 import Category from '../components/Category'
+import '../assets/css/mainCss.css'
 
 class categoryTemplate extends Component {
     render() {
@@ -11,7 +12,6 @@ class categoryTemplate extends Component {
         const { category } = this.props.pageContext
         return (
           <div>
-          <Sidebar {...this.props} />
             <Layout>
             <div>
               <Helmet title={`${category} - ${title}`} />

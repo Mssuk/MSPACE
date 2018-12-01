@@ -6,10 +6,8 @@ import Helmet from 'react-helmet'
 
 import Layout from '../components/Layout'
 import Post from '../components/Post'
-import Sidebar from '../components/Sidebar'
-
 import { rhythm } from '../utils/typography'
-import 'bootstrap/dist/css/bootstrap.min.css';
+import '../assets/css/mainCss.css'
 
 const NavLink = props => {
     if (!props.test) {
@@ -34,11 +32,13 @@ export default (props) => {
   const nextUrl = (index + 1).toString();
   
   return (
-<div>
-<Sidebar {...props} />
+
 <Layout location={window.location}>
   <div className="content">
-
+      <Helmet
+    meta={[{ name: 'description', content: siteDescription }]}
+    title={siteTitle}
+  />
   <h6 className={css`
     margin-bottom :  ${rhythm(1)};
     color:#FAAC58;
@@ -62,7 +62,7 @@ export default (props) => {
 
   </div>
   </Layout>
-  </div>
+
   )
 }
 
