@@ -28,17 +28,16 @@ body
 }
 
 ul.categories__list li:before{
-    content: "⭕";
+    content: "> ";
     display: inline-block;
     vertical-align: middle;
-    padding: 0px 6px 6px 0px;
-    /* font-family: 'Black Han Sans', sans-serif; */
+    font-family: 'Black Han Sans', sans-serif;
 }
 
 ul.categories__list
 {
     list-style: none;
-    font-size: 15px;
+    font-size: 1em;
 }
 
 .categories__list-item-link

@@ -36,16 +36,15 @@ class Sidebar extends Component {
             return(
               <Container>
                 <Row>
-                  <Col style={{textAlign:'center'}}>
+                  <Col md={{size:'11', offset:0}} sm={{size:'7'}} xs={{size:'7', offset:2}} style={{textAlign:'center'}}>
                   <Link to="/">
                   <img src={profileImg}
-                  width={210}
-                  height={240} />
+                  />
                   </Link>
                   </Col>
                 </Row>
                 <Row>
-                  <Col md={{size:'auto', offset:1}} xs={{size:'auto', offset:2}}>
+                  <Col xs={{size:'9', offset:3}} sm={{size:'9', offset:3}} md={{size:'12',offset:0}}>
                   <div className="categories">
                     <ul className="categories__list">
                       {data.allMarkdownRemark.group.filter(category => category.fieldValue !== "undefined")
@@ -69,7 +68,7 @@ class Sidebar extends Component {
                   </Col>
                   </Row>
                   <Row>
-                    <Col xs={{size:1, offset:4}}>
+                    <Col xs={{size:'1', offset:4}} md={{size:'1', offset:2}}>
                   <a href="https://github.com/Mssuk" style={{color:"black"}}>
                   <h4>
                   <FaGithub />

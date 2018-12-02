@@ -14,7 +14,7 @@ const Hit = ({ hit }) =>
    <Row>
      <Col style={{fontSize:rhythm(0.8)}}>
 
-    <Link to={hit.fields.slug} style={{color:`#bb0f`}}>
+    <Link to={hit.fields.slug} style={{color:`#3FAB1E`}}>
       <Highlight attribute="frontmatter.title" 
        tagName="strong"
       hit={hit}/>
@@ -23,7 +23,7 @@ const Hit = ({ hit }) =>
    </Row>
 
     <Row>
-      <Col style={{ maxWidth: `600px`}}>
+      <Col style={{ maxWidth: `800px`}}>
        <Highlight attribute="excerpt"
         tagName="strong"
        hit={hit}/>

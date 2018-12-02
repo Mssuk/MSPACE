@@ -3,7 +3,7 @@ import { Link, graphql } from 'gatsby'
 import get from 'lodash/get'
 import { css } from "react-emotion"
 import Helmet from 'react-helmet'
-
+import favicon from '../../static/favicon.ico'
 import Layout from '../components/Layout'
 import Post from '../components/Post'
 import { rhythm } from '../utils/typography'
@@ -38,6 +38,7 @@ export default (props) => {
       <Helmet
     meta={[{ name: 'description', content: siteDescription }]}
     title={siteTitle}
+    link= {[{rel:'shortcut icon', type:'image/x-icon' , href : `${favicon}`}]}
   />
   <h6 className={css`
     margin-bottom :  ${rhythm(1)};
