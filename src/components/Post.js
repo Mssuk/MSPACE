@@ -46,7 +46,7 @@ class Post extends Component {
            text-decoration: none;
            color: inherit;
            box-shadow: none;
-           padding-left:  ${rhythm(1/2)};
+           padding-left: ${rhythm(1/2)};
            font-size: 1.4rem;
            `
            }

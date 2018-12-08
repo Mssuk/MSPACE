@@ -78,11 +78,9 @@ export default (props) =>
     return(
       <Container style={{background:`white`, minHeight:`100vh`}}>
             <Helmet link = {[
-          {rel:'shortcut icon', type:'image/x-icon' , href : `${favicon}`}]}
-          >
-          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.0.0/themes/algolia-min.css"></link>
+          {rel:'shortcut icon', type:'image/x-icon' , href : `${favicon}`}
+            ]}>
           <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
-          <link rel="shortcut icon" href="favicon.ico"></link>
           </Helmet>
         <Row>
           <Col md={{size:3}}>

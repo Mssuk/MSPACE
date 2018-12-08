@@ -41,7 +41,7 @@ export default (props) => {
     link= {[{rel:'shortcut icon', type:'image/x-icon' , href : `${favicon}`}]}
   />
   <h6 className={css`
-    margin-bottom :  ${rhythm(1)};
+    margin-bottom : ${rhythm(1)};
     color:#FAAC58;
   `}>{props.data.allMarkdownRemark.totalCount} 개의 포스트</h6>
 
